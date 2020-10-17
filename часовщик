@@ -1,0 +1,4 @@
+from datetime import datetime
+ts = int(input("Введите секунды:"))
+result=datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+print("Введенное количество секунд соответсвует дате:"+str(result))
