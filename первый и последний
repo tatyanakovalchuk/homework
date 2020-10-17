@@ -1,0 +1,8 @@
+a=[]
+n=int(input("Введите количество елементов последовательности:"))
+def myfunction():
+    for i in range(n):
+        new_element = int(input("Введите новое число в список:"))
+        a.append(new_element)
+myfunction()
+print ("первый элемент последовательности:" +str(a[0])+", последний элемент последовательности:"+str(a[n-1]))
