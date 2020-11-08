@@ -2,8 +2,7 @@
 import sys
 import sqlite3
 
-def create_note():
-    pass
+
 def find_note():
     pass
 def edit_note():
@@ -39,7 +38,7 @@ while menu_choice != 5:
     print_menu()
     menu_choice = int(input("Введите число от 1 до 5:"))
     if menu_choice == 1:
-        create_note()
+        import createmodule
     elif menu_choice == 2:
         find_note()
     elif menu_choice == 3:
