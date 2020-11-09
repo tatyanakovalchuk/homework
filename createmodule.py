@@ -1,6 +1,9 @@
 import sys
 import sqlite3
 
+conn = sqlite3.connect('phonebook.db')
+cur = conn.cursor()
+
 def create_note():
     while True:
         name = input("Введите имя: ")
@@ -30,15 +33,8 @@ def create_note():
             break
         else:
             print("Пожалуйста, введите комментарий")
-
     print("Новая запись успешно добавлена")
+    cur.execute(f"INSERT INTO Phonebook VALUES (NULL, '{name}', '{surname}', '{phone_number}', '{comment}')")
+    conn.commit()
 
-conn = sqlite3.connect('phonebook.db')
-cursor = conn.cursor()
-cursor.execute('''CREATE TABLE IF NOT EXISTS phonebook (
-                id integer PRIMARY KEY,
-                name text NOT NULL,
-                surname text,
-                phone_number text)''');
-conn.commit()
 create_note()
