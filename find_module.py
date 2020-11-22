@@ -1,4 +1,3 @@
-
 import sqlite3
 conn = sqlite3.connect('phonebook.db')
 cur = conn.cursor()
@@ -28,7 +27,7 @@ def search():
 
 def findcontacts():
     s = search()
-    cur.execute('SELECT surname, name, phone_number FROM phonebook WHERE ' + s + ' ORDER BY surname')
+    cur.execute('SELECT id, surname, name, phone_number FROM phonebook WHERE ' + s + ' ORDER BY id')
     results = cur.fetchall()
     not_found = []
     if results == not_found:
@@ -36,4 +35,3 @@ def findcontacts():
     else:
         print(results)
 
-findcontacts()
