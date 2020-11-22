@@ -1,4 +1,3 @@
-
 import sys
 import sqlite3
 import createmodule
@@ -41,13 +40,13 @@ conn.commit()
 menu_choice = 0
 while menu_choice != 6:
     print_menu()
-    menu_choice = int(input("Введите число от 1 до 5:"))
+    menu_choice = int(input("Введите число от 1 до 6:"))
     if menu_choice == 1:
         createmodule.create_note()
     elif menu_choice == 2:
         findmodule.findcontacts()
     elif menu_choice == 3:
-        editmodule.edit_note()
+        editmodule.editcontacts()
     elif menu_choice == 4:
         delete_note()
     elif menu_choice == 5:
