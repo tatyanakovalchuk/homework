@@ -34,4 +34,4 @@ def findcontacts():
         print("Поиск не дал результатов")
     else:
         print(results)
-
+    return results
