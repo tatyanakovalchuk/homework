@@ -8,10 +8,9 @@ def search():
 
 def choose():
     chosen_contact=int(input("Введите id контакта в котором необходимо внести изменения: "))
-    conn = sqlite3.connect('phonebook.db')
-    cur = conn.cursor()
     cur.execute("SELECT name, surname, phone_number FROM phonebook WHERE id LIKE {}".format(chosen_contact))
     conn.commit()
+    return chosen_contact
 
 def update():
     print("\nВыберите по какому критерию произвести обновление (от 1 до 3)")
@@ -40,4 +39,4 @@ def editcontacts():
         sql = ("UPDATE phonebook SET {}  WHERE {} LIKE '%{}%'".format(u, s, c))
         cur.execute(sql)
         conn.commit()
-        print("The records with " + s + " are deleted.\n")
+        print("Запись изменена.\n")
