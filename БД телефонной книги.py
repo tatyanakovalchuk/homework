@@ -1,15 +1,18 @@
 
 import sys
 import sqlite3
+import createmodule
+import findmodule
+import editmodule
 
-def edit_note():
-    pass
+
 def delete_note():
     pass
 def displaybook():
-    cur.execute("SELECT surname, name, phone_number FROM phonebook ORDER BY surname")
+    cur.execute("SELECT id, surname, name, phone_number FROM phonebook ORDER BY id")
     results = cur.fetchall()
     print(results)
+
 def close_win():
     print("Выполнен выход из программы")
     sys.exit(0)
@@ -27,7 +30,7 @@ def print_menu():
 conn = sqlite3.connect('phonebook.db')
 cur = conn.cursor()
 cur.execute("""CREATE TABLE IF NOT EXISTS phonebook(
-   id INT PRIMARY KEY,
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
    name TEXT NOT NULL,
    surname TEXT,
    phone_number INT,
@@ -38,13 +41,13 @@ conn.commit()
 menu_choice = 0
 while menu_choice != 6:
     print_menu()
-    menu_choice = int(input("Введите число от 1 до 6:"))
+    menu_choice = int(input("Введите число от 1 до 5:"))
     if menu_choice == 1:
-        import createmodule
+        createmodule.create_note()
     elif menu_choice == 2:
-        import find_module
+        findmodule.findcontacts()
     elif menu_choice == 3:
-        edit_note()
+        editmodule.edit_note()
     elif menu_choice == 4:
         delete_note()
     elif menu_choice == 5:
@@ -53,4 +56,3 @@ while menu_choice != 6:
         close_win()
     else:
         print("Пожалуйста следуйте инструкциям")
-
