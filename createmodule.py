@@ -37,4 +37,4 @@ def create_note():
     cur.execute(f"INSERT INTO Phonebook VALUES (NULL, '{name}', '{surname}', '{phone_number}', '{comment}')")
     conn.commit()
 
-create_note()
+
